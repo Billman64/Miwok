@@ -36,7 +36,7 @@
         <activity android:name=".FamilyActivity"
             android:label="Family"/>
         <activity android:name=".ColorsActivity"
-            android:label="Family"></activity>
+            android:label="Colors"></activity>
     </application>
 
 </manifest>
