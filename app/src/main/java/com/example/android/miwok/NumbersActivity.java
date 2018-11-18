@@ -23,17 +23,19 @@ public class NumbersActivity extends AppCompatActivity {
         //    String [] words = new String[10];
 //        String[] words = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
 
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        ArrayList<Word> words = new ArrayList<Word>();
+//        words.add("one");
+        words.add(new Word("one","lutti"));
+        words.add(new Word("two","otillko"));
+        words.add(new Word("three","tolockosu"));
+        words.add(new Word("four","oyylse"));
+        words.add(new Word("five","massokka"));
+        words.add(new Word("six","temmokka"));
+        words.add(new Word("seven","kennekaku"));
+        words.add(new Word("eight","kawinta"));
+        words.add(new Word("nine","wo'e"));
+        words.add(new Word("ten","na'aacha"));
+
 
         int i = 0;
 //        for(i=0;i<10;i++) {
@@ -54,15 +56,18 @@ public class NumbersActivity extends AppCompatActivity {
 //            rootView.addView(tv.get(i));
 //            i++;
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-
+//        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter adapter = new WordAdapter(this, words);
+        ListView listView = (ListView)findViewById(R.id.list);
+        Log.d("Miwok", "about to set adapter");
+        listView.setAdapter(adapter);
 //        ListView listView = (ListView) findViewById(R.id.list);
 
 //        listView.setAdapter(itemsAdapter);
 
-        GridView gv = (GridView) findViewById(R.id.list);
+//        GridView gv = (GridView) findViewById(R.id.list);
 
-        gv.setAdapter(itemsAdapter);
+//        gv.setAdapter(itemsAdapter);
 
         }
     }
