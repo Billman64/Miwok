@@ -52,7 +52,7 @@ public class NumbersActivity extends AppCompatActivity {
 //            i++;
 
 //        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_numbers);
         ListView listView = (ListView)findViewById(R.id.list);
         Log.d("Miwok", "about to set adapter");
         listView.setAdapter(adapter);
