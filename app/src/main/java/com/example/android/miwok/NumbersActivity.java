@@ -20,16 +20,16 @@ public class NumbersActivity extends AppCompatActivity {
 
         ArrayList<Word> words = new ArrayList<Word>();
 //        words.add("one");
-        words.add(new Word("one","lutti"));
-        words.add(new Word("two","otillko"));
-        words.add(new Word("three","tolockosu"));
-        words.add(new Word("four","oyylse"));
-        words.add(new Word("five","massokka"));
-        words.add(new Word("six","temmokka"));
-        words.add(new Word("seven","kennekaku"));
-        words.add(new Word("eight","kawinta"));
-        words.add(new Word("nine","wo'e"));
-        words.add(new Word("ten","na'aacha"));
+        words.add(new Word("one","lutti", R.drawable.number_one));
+        words.add(new Word("two","otillko", R.drawable.number_two));
+        words.add(new Word("three","tolockosu", R.drawable.number_three));
+        words.add(new Word("four","oyylse", R.drawable.number_four));
+        words.add(new Word("five","massokka", R.drawable.number_five));
+        words.add(new Word("six","temmokka", R.drawable.number_six));
+        words.add(new Word("seven","kennekaku", R.drawable.number_seven));
+        words.add(new Word("eight","kawinta", R.drawable.number_eight));
+        words.add(new Word("nine","wo'e", R.drawable.number_nine));
+        words.add(new Word("ten","na'aacha", R.drawable.number_ten));
 
 
         int i = 0;
