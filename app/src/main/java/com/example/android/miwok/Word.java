@@ -5,9 +5,12 @@ public class Word {
     private String mMiwokTranslation;
     private int mImage;
 
+    private final int NO_IMAGE_RESOURCE = -1;
+
     public Word(String a, String b) {
         mDefaultTranslation = a;
         mMiwokTranslation = b;
+        mImage = NO_IMAGE_RESOURCE;
     }
 
     public Word(String a, String b, int imageResource) {
@@ -38,5 +41,9 @@ public class Word {
 
     public void setmDefaultTranslation(String mDefaultTranslation) {
         this.mDefaultTranslation = mDefaultTranslation;
+    }
+
+    public boolean hasImage(){
+        return mImage != NO_IMAGE_RESOURCE;
     }
 }

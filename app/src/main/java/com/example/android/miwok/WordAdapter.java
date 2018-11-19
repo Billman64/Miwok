@@ -31,11 +31,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
         engTextView.setText(currentWord.getmDefaultTranslation());
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok);
         miwokTextView.setText(currentWord.getmMiwokTranslation());
+
+
+        // populate imageView (if applicable)
         ImageView image = (ImageView) listItemView.findViewById(R.id.image);
-        image.setImageResource(currentWord.getImageResource());
 
-
-
+        if(currentWord.hasImage()) {
+            image.setImageResource(currentWord.getImageResource());
+            image.setVisibility(View.VISIBLE);
+        } else image.setVisibility(View.GONE);
 
         return listItemView;
 
