@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mColorResourceId;
+
     public WordAdapter(@NonNull Context context, ArrayList<Word> word, int colorResourceId) {
         super(context, 0, word);
         mColorResourceId = colorResourceId;
@@ -31,7 +33,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         // capture views and populate them
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
         TextView engTextView = (TextView) listItemView.findViewById(R.id.english);
         engTextView.setText(currentWord.getmDefaultTranslation());
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok);
@@ -43,6 +45,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
         textContainer.setBackgroundColor(color);
         engTextView.setBackgroundColor(color);
 
+        // set an onClickListener to implement audio feedback when tapped on a listView item
+        textContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), currentWord.getAudio());
+                mediaPlayer.start();
+            }
+        });
 
         // populate imageView (if applicable)
         ImageView image = (ImageView) listItemView.findViewById(R.id.image);

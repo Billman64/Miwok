@@ -5,18 +5,30 @@ public class Word {
     private String mMiwokTranslation;
     private int mImage;
 
+    public int getAudio() {
+        return mAudio;
+    }
+
+    public void setAudio(int mAudio) {
+        this.mAudio = mAudio;
+    }
+
+    private int mAudio;
+
     private final int NO_IMAGE_RESOURCE = -1;
 
-    public Word(String a, String b) {
+    public Word(String a, String b, int audio) {
         mDefaultTranslation = a;
         mMiwokTranslation = b;
         mImage = NO_IMAGE_RESOURCE;
+        mAudio = audio;
     }
 
-    public Word(String a, String b, int imageResource) {
+    public Word(String a, String b, int imageResource, int audio) {
         mDefaultTranslation = a;
         mMiwokTranslation = b;
         mImage = imageResource;
+        mAudio = audio;
     }
 
     public int getImageResource() {
