@@ -55,6 +55,13 @@ public class FamilyActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+        // Ctrl+O and Code+Override Methods not working in this AS project for some reason
+    }
+
     /**
      * Clean up the media player by releasing its resources.
      * reference from: https://gist.github.com/udacityandroid/f4ec40027031ba7de9352465f143c816

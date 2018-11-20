@@ -55,6 +55,13 @@ public class ColorsActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+        // Ctrl+O and Code+Override Methods not working in this AS project for some reason
+    }
+
 
 
     /**
