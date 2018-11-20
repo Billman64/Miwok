@@ -5,6 +5,17 @@ public class Word {
     private String mMiwokTranslation;
     private int mImage;
 
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImage=" + mImage +
+                ", mAudio=" + mAudio +
+                ", NO_IMAGE_RESOURCE=" + NO_IMAGE_RESOURCE +
+                '}';
+    }
+
     public int getAudio() {
         return mAudio;
     }

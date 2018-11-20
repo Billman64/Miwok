@@ -10,14 +10,18 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mColorResourceId;
+    MediaPlayer mMediaPlayer;
 
     public WordAdapter(@NonNull Context context, ArrayList<Word> word, int colorResourceId) {
         super(context, 0, word);
@@ -45,14 +49,26 @@ public class WordAdapter extends ArrayAdapter<Word> {
         textContainer.setBackgroundColor(color);
         engTextView.setBackgroundColor(color);
 
+        // set an OnItemClickListener to the listView to implement audio feedback specific to each listView item
+//        final ListView lv = (ListView) parent.findViewById(R.id.list);
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+////                mMediaPlayer = MediaPlayer.create(getContext(), lv.getItemAtPosition(position)   currentWord.getAudio());
+////                mMediaPlayer.start();
+////                Toast.makeText("asdf", "item: " + lv.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
         // set an onClickListener to implement audio feedback when tapped on a listView item
-        textContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), currentWord.getAudio());
-                mediaPlayer.start();
-            }
-        });
+//        textContainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), currentWord.getAudio());
+//                mediaPlayer.start();
+//            }
+//        });
 
         // populate imageView (if applicable)
         ImageView image = (ImageView) listItemView.findViewById(R.id.image);

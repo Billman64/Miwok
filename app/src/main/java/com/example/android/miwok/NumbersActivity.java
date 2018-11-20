@@ -1,24 +1,29 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
-
+    public MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
+
+
         //    String [] words = new String[10];
 //        String[] words = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
 
-        ArrayList<Word> words = new ArrayList<Word>();
+        final ArrayList<Word> words = new ArrayList<Word>();
 //        words.add("one");
         words.add(new Word("one","lutti", R.drawable.number_one, R.raw.number_one));
         words.add(new Word("two","otillko", R.drawable.number_two, R.raw.number_two));
@@ -32,7 +37,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("ten","na'aacha", R.drawable.number_ten, R.raw.number_ten));
 
 
-        int i = 0;
+//        int i = 0;
 //        for(i=0;i<10;i++) {
 //            Log.v("Miwok app", i + ": " + words.get(i));
 //        }
@@ -63,6 +68,16 @@ public class NumbersActivity extends AppCompatActivity {
 //        GridView gv = (GridView) findViewById(R.id.list);
 
 //        gv.setAdapter(itemsAdapter);
+
+        // set an OnItemClickListener to the listView to implement audio feedback specific to each listView item
+        final ListView lv = (ListView) listView.findViewById(R.id.list);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, words.get(position).getAudio());
+                mMediaPlayer.start();
+            }
+        });
 
         }
     }
